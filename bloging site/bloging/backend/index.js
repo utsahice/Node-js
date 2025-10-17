@@ -7,14 +7,14 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5173', 'http://localhost:3001'], 
+    origin: ['http://localhost:5173'], 
     methods: ['GET', 'POST'],
     credentials: true,
   },
 });
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3001'],
+  origin: ['http://localhost:5173'],
   credentials: true,
 }));
 app.use(express.json());
@@ -47,5 +47,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(3000, () => {
-  console.log('Server listening on http://localhost:3000');
+  console.log('Server listening on http://localhost:5173');
 });
